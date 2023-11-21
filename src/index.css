@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .max-container {
+      @apply mx-auto max-w-[1440px];
+  }
+
+  /* ===========================================================================
+  DEFAULT BEHAVIOUR
+  =========================================================================== */
+  body {
+      @apply relative max-container set-bg font-inter text-balance;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+      @apply font-gabar font-bold text;
+      /* @apply font-rubikmono font-bold text; */
+  }
+
+  h1 {
+      @apply text-4xl;
+  }
+
+  h2 {
+      @apply text-3xl;
+  }
+
+  h3 {
+      @apply text-2xl;
+  }
+
+  h4 {
+      @apply text-xl;
+  }
+
+  h5 {
+      @apply text-lg;
+  }
+
+  h6 {
+      @apply text-base;
+  }
+
+  p {
+      @apply text-base text-balance;
+  }
+
+  a {
+      @apply text-base text-balance-hover text-blue-500;
+  }
+
+  svg,
+  img {
+      @apply w-full h-full object-cover;
+  }
+
+  textarea,
+  input {
+      @apply text-base py-[2px] px-2 accent-focus  outline-focus text-neutral-800 rounded-sm;
+  }
+
+  button,
+  a, Link{
+      @apply focus:outline-focus border-none;
+  }
+
+
+  /* ===========================================================================
+  COLOR CLASSES
+  =========================================================================== */
+  .set-bg {
+      @apply bg-slate-900;
+  }
+
+  .set-bg-light {
+      @apply bg-slate-800;
+  }
+
+  .set-bg-dark {
+      @apply bg-slate-950;
+  }
+
+  .set-bg-p {
+      @apply bg-lime-400;
+  }
+
+  .set-grad-p {
+      @apply bg-gradient-to-br from-lime-300 to-lime-500 hover:to-lime-600;
+  }
+
+  .set-hover {
+      @apply hover:bg-slate-700;
+  }
+
+  .set-hover-light {
+      @apply hover:bg-slate-600;
+  }
+
+  .text-link{
+    @apply text-lime-400 hover:underline hover:text-lime-400;
+  }
+
+  .text {
+      @apply text-neutral-300;
+  }
+
+  .text-balance {
+      @apply text-neutral-400;
+  }
+
+  .clr-p {
+      @apply text-lime-400 hover:text-lime-400;
+  }
+
+  .text-hover-inverse {
+      @apply text-neutral-100 hover:text-neutral-900;
+  }
+
+  .text-balance-hover {
+      @apply text-neutral-400 hover:text-neutral-100;
+  }
+
+  .set-text-focus {
+      @apply text-focus hover:text-focus-light focus:text-focus-light;
+  }
+
+
+  /* ===========================================================================
+      COMMON CLASSES
+      =========================================================================== */
+
+  .section-padding {
+      @apply py-8 px-4 md:px-12 md:py-10 lg:px-16 lg:py-16;
+  }
+
+  .section-margin {
+      @apply my-12 mx-4 md:mx-12 md:my-16 lg:mx-16 lg:my24;
+  }
+
+  .manage-text {
+      @apply break-words break-all hyphens-auto;
+  }
+
+  .card-container {
+      @apply grid gap-4 grid-cols-[repeat(auto-fill,_minmax(18rem,_1fr))];
+  }
+
+  .flex-center,
+  .img-box,
+  .icon-box {
+      @apply flex justify-center items-center;
+  }
+
+  .flex-between {
+      @apply flex justify-between items-center;
+  }
+
+  .set-border-thin {
+      @apply border-solid border-neutral-200/20;
+  }
+
+  .set-divide {
+      @apply border-solid border-neutral-200/20;
+  }
+
+  /* ===========================================================================
+  BUTTON
+  =========================================================================== */
+  .btn {
+      @apply py-2 px-4 text-base capitalize inline-flex flex-center gap-2 border-transparent font-semibold whitespace-nowrap rounded transition-all focus:outline-2 focus:outline focus:outline-focus focus:outline-offset-0;
+  }
+
+  .btn-p {
+      /* @apply btn set-grad-p text-neutral-900 hover:text-neutral-900; */
+      @apply btn bg-gradient-to-br from-lime-500 via-violet-500 to-indigo-500  text-neutral-900 hover:text-neutral-900;
+  }
+
+  .btn-solid {
+      @apply btn set-bg-p text-neutral-900 hover:text-neutral-900 hover:bg-neutral-100 focus:outline-offset-2;
+  }
+
+  .btn-soft {
+      @apply btn text bg-slate-800 hover:bg-slate-900;
+  }
+
+  .btn-outline {
+      @apply btn text hover:bg-slate-800 outline outline-offset-[-2px] outline-2 outline-slate-700 focus:bg-slate-800 focus:outline-focus;
+  }
+
+  .btn-ghost {
+      @apply btn text hover:bg-slate-800 ;
+  }
+
+  .btn-link {
+      @apply btn text-lime-400 hover:text-lime-300 hover:underline;
+  }
+
+  .btn-ghost-link {
+      @apply btn text-neutral-200 hover:text-lime-400  hover:bg-slate-800 focus:bg-slate-800;
+  }
+
+  .btn-danger {
+      @apply btn bg-danger text-white hover:bg-danger-dark focus:outline-none focus:ring-2 focus:ring-danger focus:ring-offset-2 focus:ring-offset-slate-200;
+  }
+}
