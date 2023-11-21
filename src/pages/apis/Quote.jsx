@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
 import DisplayCard from "../../components/ui/DisplayCard";
+import LoadingSpinner from "../../components/ui/LoadingSpinner";
 
 export default function Quote() {
     const [quote, setQuote] = useState("")
     const [author, setAuthor] = useState("")
+    const [loading, setLoading] = useState(true);
 
     async function fetchQuote() {
+        setLoading(true)
         const response = await fetch(`https://api.quotable.io/random`);
         const quoteData = await response.json();
         setQuote(quoteData.content);
         setAuthor(quoteData.author);
+        setLoading(false)
     }
 
     useEffect(() => {
@@ -20,13 +24,17 @@ export default function Quote() {
         <div className="w-full mx-auto flex-center flex-col">
             <h1 className="mb-6">Quotes</h1>
             <DisplayCard className="z-0">
-                <div className="p-8 w-full h-full">
-                    <div className="text-light font-bold text-center italic">
-                        {quote && <span>"{quote}"</span>}
-                    </div>
-                    <div className="mt-2 text-right italic">
-                        {author && <span>by - {author}</span>}
-                        </div>
+                <div className="p-8 w-full h-full flex-center flex-col">
+                    {loading ? <LoadingSpinner /> :
+                        <>
+                            <div className="text-light font-bold text-center italic">
+                                {quote && <span>"{quote}"</span>}
+                            </div>
+                            <div className="mt-2 text-right italic">
+                                {author && <span>by - {author}</span>}
+                            </div>
+                        </>
+                    }
                 </div>
             </DisplayCard >
             <div className="relative w-full flex-center z-10">
